@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="newapp">
+<head>
+	<title>TechFreak</title>
+	<base href="/">
+	<script type="text/javascript" src="assets/js/angular.js" ></script>
+	<script type="text/javascript" src="assets/js/bower_components/angular-material/angular-material.js" ></script>
+	<script type="text/javascript" src="assets/js/bower_components/angular-animate/angular-animate.js" ></script>
+	<script type="text/javascript" src="assets/js/bower_components/angular-aria/angular-aria.js" ></script>
+	<script type="text/javascript" src="assets/js/bower_components/angular-messages/angular-messages.js" ></script>
+	<script type="text/javascript" src="assets/js/script.js" ></script>
+	<script type="text/javascript" src="assets/js/angular-route.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/js/angular-resource.js" charset="utf-8"></script>
+    <script src="assets/js/jquery.js" charset="utf-8"></script>
+    <script src="assets/js/bootstrap.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8"
+    <link rel="stylesheet" href="assets/js/bower_components/angular-material/angular-material.css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+<md-icon md-svg-src="assets/avatars/essential-collection/svg/user-6.svg"></md-icon>
+<div ng-controller="AppCtrl" ng-cloak>
+  <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item  md-nav-href="/">Home</md-nav-item>
+      <md-nav-item  md-nav-href="/#about">About US</md-nav-item>
+      <md-nav-item  md-nav-href="/#contact">Contact Us</md-nav-item>
+      
+      <md-nav-item  md-nav-href="/#register">Signup</md-nav-item>
+      <md-nav-item  md-nav-href="/#login" md-nav-="navbar-right">Login</md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
+      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
+      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
+      -->
+    </md-nav-bar>
+    
+  <md-content class="md-padding">
+    
+    
+  <div ng-view></div>  
+  </md-content>
+</div>
+
+</body>
+</html>

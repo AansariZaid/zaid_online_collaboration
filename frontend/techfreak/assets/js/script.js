@@ -1,35 +1,32 @@
 //freak app wa testing with bootstrapp navbar
-var freakapp = angular.module('freakapp',['ngRoute']);
-freakapp.controller('mainCtrl',function($scope){
-	$scope.message = "its Awesome"
-});
-
+// var oldapp = angular.module('oldapp',['ngRoute']);
+// oldapp.controller('mainCtrl',function($scope){
+// 	$scope.message = "its Awesome"
+// });
 // New Controller to Use NG Material for more Interactive Design
 
-var newapp = angular.module('newapp',['ngMaterial','ngRoute', 'ngMessages']);
+var freakapp = angular.module('freakapp',['ngMaterial','ngRoute', 'ngMessages']);
 
-newapp.config(function($routeProvider, $locationProvider) {
+freakapp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 
 	.when('/',{
-		templateUrl: "app/components/page/home.html",controller : 'AppCtrl'
+		templateUrl: "app/components/blog/blog.html",controller : 'AppCtrl'
 	})
-	.when('/about',{templateUrl:"app/components/page/about.html",controller : 'aboutCtrl'})
-	.when('/contact',{templateUrl: "app/components/page/contact.html",controller : 'contactCtrl'})
-	.when('/register',{templateUrl: "app/components/page/register.html", controller : 'registerCtrl'})
-	.when('/login',{templateUrl: "app/components/page/login.js",controller : 'loginCtrl'});
+	.when('/about',{templateUrl:"app/components/page/about.html"})
+	.when('/contact',{templateUrl: "app/components/page/contact.html"})
+	.when('/register',{templateUrl: "app/components/page/register.html"})
+	.when('/login',{templateUrl: "app/components/page/login.js"});
 	//use html 5 history api to get rid of # in link
 	$locationProvider.html5Mode(true);
-
-
 });
-newapp.controller('aboutCtrl',function($scope){
-	$scope.message = "Look this is About Page";
-});
-newapp.controller('contactCtrl',function($scope){
-	$scope.message = "Look Now I am in Contact Page";
-});
-newapp.controller('registerCtrl',function($scope){
+// freakapp.controller('aboutCtrl',function($scope){
+// 	$scope.message = "Look this is About Page";
+// });
+// freakapp.controller('contactCtrl',function($scope){
+// 	$scope.message = "Look Now I am in Contact Page";
+// });
+freakapp.controller('registerCtrl',function($scope){
 	$scope.user = {
       name: '',
       email: '',
@@ -38,15 +35,23 @@ newapp.controller('registerCtrl',function($scope){
       donation: 19.99
     };
 });
-newapp.controller('loginCtrl',function($scope){
-	$scope.message = "Look Now I am in Contact Page";
-});
+// freakapp.controller('loginCtrl',function($scope){
+// 	$scope.message = "Look Now I am in Contact Page";
+// });
 
-newapp.controller('AppCtrl', function($scope){
+
+freakapp.controller('AppCtrl', function($scope,$mdSidenav){
 	//write your logic here to retrive data for pages
 	$scope.currentNavItem = 'page1'
+	 $scope.toggleLeft = buildToggler('left');
+	 function buildToggler(componentId) {
+      return function() {
+        $mdSidenav(componentId).toggle();
+      }
+    }
+
 });
 // this contrroller is used for error
-newapp.controller('errorCtrl',function($scope){
+freakapp.controller('errorCtrl',function($scope){
 	$scope.project = {description : 'Please Enter Name', price: 500};
 });

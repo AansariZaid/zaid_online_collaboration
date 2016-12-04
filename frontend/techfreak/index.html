@@ -1,42 +1,83 @@
 <!DOCTYPE html>
-<html ng-app="newapp">
+<html>
 <head>
 	<title>TechFreak</title>
-	<base href="/">
+  <base href="/">
 	<script type="text/javascript" src="assets/js/angular.js" ></script>
 	<script type="text/javascript" src="assets/js/bower_components/angular-material/angular-material.js" ></script>
 	<script type="text/javascript" src="assets/js/bower_components/angular-animate/angular-animate.js" ></script>
 	<script type="text/javascript" src="assets/js/bower_components/angular-aria/angular-aria.js" ></script>
 	<script type="text/javascript" src="assets/js/bower_components/angular-messages/angular-messages.js" ></script>
-	<script type="text/javascript" src="assets/js/script.js" ></script>
 	<script type="text/javascript" src="assets/js/angular-route.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/js/angular-resource.js" charset="utf-8"></script>
-    <script src="assets/js/jquery.js" charset="utf-8"></script>
-    <script src="assets/js/bootstrap.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <!-- <script src="assets/js/jquery.js" charset="utf-8"></script> -->
+    <!-- <script src="assets/js/bootstrap.js" charset="utf-8"></script> -->
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap.css" media="screen" title="no title" charset="utf-8"> -->
     <link rel="stylesheet" href="assets/js/bower_components/angular-material/angular-material.css" media="screen" title="no title" charset="utf-8">
+<style type="text/css">
+	.red{background-color: red;}
+	.lightblue{background-color: lightblue;}
+	.lightgreen{background-color: lightgreen;}
+	.avatar{
+		width: 328px;
+		height: 328px;
+		border: 1px solid;
+
+	}
+</style>
+    <script>
+    	/**
+    	* MyApp Module
+    	*
+    	* Description
+    	*/
+    	angular.module('MyApp', ['ngMaterial']).config(function() {
+    		
+
+
+    	});
+
+
+
+    </script>
 </head>
-<body>
 
-<div ng-controller="AppCtrl" ng-cloak>
-  <md-content class="md-padding">
-    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
-      <md-nav-item 	md-nav-href="/">Home</md-nav-item>
-      <md-nav-item  md-nav-href="/#about">About US</md-nav-item>
-      <md-nav-item  md-nav-href="/#contact">Contact Us</md-nav-item>
-      <md-nav-item  md-nav-href="/#register">Signup</md-nav-item>
-      <md-nav-item  md-nav-href="/#login" md-nav-="navbar-right">Login</md-nav-item>
-      <!-- these require actual routing with ui-router or ng-route, so they won't work in the demo
-      <md-nav-item md-nav-sref="app.page4" name="page4">Page Four</md-nav-item>
-      <md-nav-item md-nav-href="#page5" name="page5">Page Five</md-nav-item>
-      -->
-    </md-nav-bar>
-    
-  <div ng-view></div>  
-  </md-content>
+<body ng-app="freakapp" layout = "column" ng-controller = "AppCtrl" ng-cloak flex>
 
-
+<md-toolbar layout = "row" >
+<div class="md-toolbar-tools" >
+  <md-button hide-gt-sm ng-click="toggleLeft()" >
+    <md-icon md-svg-src="assets/avatars/essential-collection/svg/user-6.svg"></md-icon>
+  </md-button>
+	<md-button layout-align = "center none" href = "/" layout-padding>Home</md-button>
+	<md-button layout-align = "center none" href = "/#about" layout-padding>About US</md-button>
+	<md-button layout-align = "center none" href = "/#contact" layout-padding>Contact Us</md-button>
+	<md-button layout-align = "center none" href = "/#login" layout-padding>Login</md-button>
+	<md-button layout-align = "center none" href = "/#register" layout-padding>Sign Up</md-button>
 </div>
+</md-toolbar>
 
+<div flex layout = "row" >
+  <md-sidenav class = "md-sidenav-left lightblue md-whiteframe-24dp" md-component-id="left"  md-is-locked-open="$mdMedia('gt-sm')" >
+    <md-list >
+      <md-list-item >
+        <md-button class = "md-button" flex>
+          <md-icon md-svg-src="assets/avatars/essential-collection/svg/user-6.svg"></md-icon>
+          <h1>My Blogs</h1>
+        </md-button>
+      </md-list-item>
+      <md-list-item >
+        <md-button class = "md-button" flex>
+          <h1>Chat</h1>
+        </md-button>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+<div ng-view flex>
+	
+</div>
+</div>
+<script type="text/javascript" src="assets/js/script.js" ></script>
 </body>
 </html>

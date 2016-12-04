@@ -1,14 +1,12 @@
-<div ng-controller="registerCtrl" layout="column" layout-padding ng-cloak>
+<div ng-controller="registerCtrl" layout="column" layout-padding flex>
 
   <br/>
 
   <md-content class="md-no-momentum">
-  <label><span class="glyphicon glyphicon-home"></span></label>
     <md-input-container class="md-icon-float md-block">
       <!-- Use floating label instead of placeholder -->
       <label>Name</label>
-
-      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <md-icon aria-label="person" class="name"></md-icon>
       <input ng-model="user.name" type="text">
     </md-input-container>
 
@@ -38,5 +36,3 @@
   </md-content>
 
 </div>
-
-Name
